@@ -1,19 +1,50 @@
 import React from 'react';
-import Header from './components/Header';
-import Banner from './components/Banner';
-import MainContent from './components/MainContent';
-import Footer from './components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Users from './pages/Users';
+import Bets from './pages/Bets';
+import Results from './pages/Results';
+import Winners from './pages/Winners';
+import Login from './pages/Login';
+import './index.css';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <Banner />
-      <main className="flex-grow">
-        <MainContent />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route
+        path="/users"
+        element={
+          <Layout>
+            <Users />
+          </Layout>
+        }
+      />
+      <Route
+        path="/bets"
+        element={
+          <Layout>
+            <Bets />
+          </Layout>
+        }
+      />
+      <Route
+        path="/results"
+        element={
+          <Layout>
+            <Results />
+          </Layout>
+        }
+      />
+      <Route
+        path="/winners"
+        element={
+          <Layout>
+            <Winners />
+          </Layout>
+        }
+      />
+    </Routes>
   );
 }
 
